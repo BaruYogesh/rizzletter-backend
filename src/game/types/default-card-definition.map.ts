@@ -28,9 +28,10 @@ export const DefaultCardDefinition = new Map<CardType, CardDefinition>([
   [
     CardType.PRIEST,
     {
-        cardName: CardType.PRIEST,
-        description: 'Pick another player. that player must reveal their card to you',
-        rank: 2,
-    }
-  ]
+      cardName: CardType.PRIEST,
+      description:
+        'Pick another player. that player must reveal their card to you',
+      rank: 2,
+    },
+  ],
 ]);

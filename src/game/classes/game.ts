@@ -25,4 +25,9 @@ export class Game {
     this.joinCode = joinCode;
     this.deck = deck;
   }
+
+  dealCard(player: Player) {
+    const newCard = this.deck.cards.pop();
+    player.hand.push(newCard);
+  }
 }
