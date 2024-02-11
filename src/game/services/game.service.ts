@@ -8,27 +8,23 @@ import { defaultGuard } from '../types/default-cards.type';
 
 @Injectable()
 export default class GameService {
-    constructor() {
+  constructor() {}
 
-    }
+  async initGame(players: Player[], winCondition: number) {
+    const deck = new Deck([
+      new defaultGuard(),
+      new defaultGuard(),
+      new defaultGuard(),
+      new defaultGuard(),
+      new defaultGuard(),
+      new defaultGuard(),
+    ]);
 
-    async initGame(players: Player[], winCondition: number){
-        const deck = new Deck([
-            new defaultGuard(),
-            new defaultGuard(),
-            new defaultGuard(),
-            new defaultGuard(),
-            new defaultGuard(),
-            new defaultGuard(),
-        ]);
-
-
-
-        const game = new Game({
-            players,
-            winCondition,
-            joinCode: 'x',
-            deck,
-        })
-    }
+    const game = new Game({
+      players,
+      winCondition,
+      joinCode: 'x',
+      deck,
+    });
+  }
 }
