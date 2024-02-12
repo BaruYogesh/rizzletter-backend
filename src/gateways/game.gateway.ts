@@ -13,11 +13,12 @@ import { from, map, Observable } from 'rxjs';
 })
 export class GameGateway {
   @SubscribeMessage('events')
-  findAll(): Observable<WsResponse<number>> {
-    return from([1, 2, 3]).pipe(
-      map((item) => ({ event: 'events', data: item })),
-    );
+  handleEvent(@MessageBody() data: string): WsResponse<unknown> {
+    console.log(data);
+    const event = 'events';
+    return { event, data };
   }
+  
 
   @SubscribeMessage('identity')
   async identity(@MessageBody() data: number): Promise<number> {
